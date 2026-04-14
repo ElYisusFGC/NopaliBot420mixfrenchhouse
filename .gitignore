@@ -1,6 +1,7 @@
 # archivos de entorno
 *.env
 *.json
+devconteiner.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
