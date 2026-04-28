@@ -58,4 +58,17 @@ async def suma2(context: discord.ext.commands.Context,*args: str|None):
 
     await context.channel.send("La suma de " + str(args[0]) + " y " + str(args[1]) + " es " + str(res))
 
+@bot.command(name="sumatodo")
+async def sumatodos(context: discord.ext.commands.Context,*args: str|None):
+    print("!sumatodo invocado con argumentos: " + str(*args))
+    if not args or not len(args)>=2:
+        await context.channel.send("No puedo sumar menos de 2 numeros bro")
+        return
+    elif bool(re.search(r"^\d+$", *args)):
+        res = int(*args)
+        if not bool(re.search(r"^\d+$", *args)):
+            await context.channel.send("El argumento " + str(*args) + " no es un numero broo")
+            return
+    await context.channel.send("La suma de " + str(*args) + "es " +str(res))
+
 bot.run(bot_token)
